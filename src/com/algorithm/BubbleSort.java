@@ -1,22 +1,22 @@
 package com.algorithm;
 
 public class BubbleSort {
-	public int[] bubbleSort(int[] array) {
-		for (int i = 0; i < array.length; i++) {
-			for (int j = 0; j < array.length-i-1; j++) {
-				if(array[j] > array[j+1]) {
-					int x = array[j];
-					array[j] = array[j+1];
-					array[j+1] = x;
+	public <T extends Comparable<T>> T[] bubbleSort(T[] array2) {
+		for (Integer i = 0; i < array2.length; i++) {
+			for (Integer j = 0; j < array2.length-i-1; j++) {
+				if(array2[j].compareTo(array2[j+1])>0) {
+					Integer x = (Integer) array2[j];
+					array2[j] = array2[j+1];
+					array2[j+1] = (T)x;
 				}
 			}
 		}
-		return array;
+		return array2;
 	}
 	
 	
-	public void displaySort(int[] array) {
-		for(int i : array) {
+	public void displaySort(Integer[] array2) {
+		for(Integer i : array2) {
 			System.out.print(i+" ");
 		}
 		System.out.println( );
@@ -25,8 +25,8 @@ public class BubbleSort {
 	public static void main(String[] args) {
 		BubbleSort sort = new BubbleSort();
 		
-		int array[] = {40,30,10,70,50,20,60,22,44};
-		int [] sortedArray = sort.bubbleSort(array);
+		Integer array[] = {40,30,10,70,50,20,60,22,44};
+		Integer [] sortedArray = sort.bubbleSort(array);
 		sort.displaySort(sortedArray);
 	}
 }

@@ -1,11 +1,11 @@
 package com.algorithm;
 
 public class BinarySearch {
-	public int binarySearch(String[] array, String data) {
-		int first = 0;
-		int last = array.length;
+	public <T extends Comparable<T>> Integer binarySearch(String[] array, String data) {
+		Integer first = 0;
+		Integer last = array.length;
 
-		int mid = (first + last) / 2;
+		Integer mid = (first + last) / 2;
 
 		if (data.compareTo(array[mid]) == 0) {
 			return mid;
@@ -23,7 +23,7 @@ public class BinarySearch {
 	public static void main(String[] args) {
 		BinarySearch binary = new BinarySearch();
 		String[] array = {"hii","bye","good","bad","my"};
-		int result = binary.binarySearch(array,"good");
+		Integer result = binary.binarySearch(array,"good");
 		if(result == -1) {
 			System.out.println("Element Found Is Not Found");
 		}else {

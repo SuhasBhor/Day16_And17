@@ -1,7 +1,7 @@
 package com.algorithm;
 
 public class MergeSort {
-	public int[] mergeSort(int [] array, int start, int end) {
+	public <T extends Comparable<T>> T[] mergeSort(T[] array, int start, int end) {
 		if(end - start < 1) {
 			return array;
 		}
@@ -13,10 +13,10 @@ public class MergeSort {
 		return merge(array, start, mid, end);
 	}
 	
-	public int[] merge(int [] array, int start, int mid, int end) {
+	public <T extends Comparable<T>> T[] merge(T[] array, int start, int mid, int end) {
 		
-		int [] Left = new int[mid - start + 1];
-		int [] Right = new int[end - mid];
+		T[] Left =(T[])new Integer[mid - start + 1];
+		T[] Right =(T[]) new Integer[end - mid];
 		
 		for(int i = 0; i < mid - start + 1; i++) 
 			Left[i] = array[start + i];
@@ -26,7 +26,7 @@ public class MergeSort {
 		int k = start, i = 0, j = 0;
 		
 		while (i < Left.length && j < Right.length) {
-			if(Left[i] < Right[j]) 
+			if(Left[i].compareTo(Right[j])<0) 
 				array[k++] = Left[i++];
 			else
 				array[k++] = Right[j++];
@@ -41,8 +41,8 @@ public class MergeSort {
 		return array;
 	}
 	
-	public void displaySort(int [] array) {
-		for (int i : array) {
+	public void displaySort(Integer[] array) {
+		for (Integer i : array) {
 			System.out.print(" " + i);			
 		}
 		System.out.println();
@@ -50,7 +50,7 @@ public class MergeSort {
 	
 	public static void main(String[] args) {
 		MergeSort sort = new MergeSort();
-		int array[] = {40,30,10,70,50,20,60,22,44};
+		Integer array[] = {40,30,10,70,50,20,60,22,44};
 		
 		sort.mergeSort(array, 0, array.length - 1);
 		sort.displaySort(array);
